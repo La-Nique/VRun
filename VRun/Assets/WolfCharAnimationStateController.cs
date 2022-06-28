@@ -28,7 +28,7 @@ public class WolfCharAnimationStateController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animationStateController = FindObjectOfType(typeof(AlienAnimationStateController)) as AlienAnimationStateController;
+        animationStateController = FindObjectOfType(typeof(AnimationStateController)) as AlienAnimationStateController;
         //latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
     }

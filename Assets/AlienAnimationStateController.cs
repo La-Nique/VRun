@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationStateController : MonoBehaviour
+public class AlienAnimationStateController : MonoBehaviour
 {
     Animator animator;
     float blendZ = 0.0f;

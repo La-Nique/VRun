@@ -208,7 +208,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 175852, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
   m_PrefabInstance: {fileID: 297783434}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &297783437
+--- !u!114 &297783439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,18 +473,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5371560a5dbc24ddba5fa72bd021cf05, type: 3}
   m_PrefabInstance: {fileID: 1873377730}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1873377733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873377732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98aea884614db416eb2ddd776a115514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1873377734
 Animator:
   serializedVersion: 4
@@ -505,3 +493,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1873377735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873377732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98aea884614db416eb2ddd776a115514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 2
+  deceleration: 2
+  maximumRunVelocity: 2
+  obstacleHit: 0

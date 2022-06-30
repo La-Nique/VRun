@@ -12,6 +12,7 @@ public class WolfCharAnimationStateController : MonoBehaviour
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
     private AlienAnimationStateController animationStateController;
+    bool didAttack = false;
 
     /////////
     /*
@@ -43,17 +44,25 @@ public class WolfCharAnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         bool isAttack = animator.GetBool("isAttack");
         bool obstacleHit = animationStateController.obstacleHit;
-        if(transform.position.z < -1.5f){
+        if(transform.position.z <= -1.5f){
             transform.position = new Vector3(0, 0,
             transform.position.z - (movementPerSecond.z * Time.deltaTime));
             
         }
-        if(transform.position.z >=-1.5f){
+        
+        if(transform.position.z >=-2f){
             animator.SetBool("isAttack", true);
+            
+            didAttack = true;
         }
+        if(didAttack && transform.position.z >= -3.7f){
+            animator.SetBool("isAttack", false);
+            transform.position = new Vector3(0, 0,
+            transform.position.z + (movementPerSecond.z * Time.deltaTime));
+        }
+
         
         
         //animator.SetBool("isAttack", false);

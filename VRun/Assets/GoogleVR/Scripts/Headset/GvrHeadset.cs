@@ -152,19 +152,7 @@ public class GvrHeadset : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Gets a value indicating whether this headset provides an Editor Emulator.
-    /// </summary>
-    /// <value>
-    /// Value `true` if this headset provides an Editor Emulator, or `false` otherwise.
-    /// </value>
-    public bool ProvidesEditorEmulator
-    {
-        get
-        {
-            return headsetProvider as EditorHeadsetProvider != null;
-        }
-    }
+
 
     /// <summary>Populates `floorHeight` with the detected height, if one is available.</summary>
     /// <remarks>This may be unavailable if the underlying GVR API call fails.</remarks>
@@ -290,10 +278,7 @@ public class GvrHeadset : MonoBehaviour
         }
 
         instance = this;
-        if (headsetProvider == null)
-        {
-            headsetProvider = HeadsetProviderFactory.CreateProvider();
-        }
+        
     }
 
     private void OnEnable()

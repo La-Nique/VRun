@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2370282, guid: 32303dc3554fcfc419798a1f0235187f, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32303dc3554fcfc419798a1f0235187f, type: 3}
 --- !u!1 &1896763386

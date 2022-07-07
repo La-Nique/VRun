@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:VRun/Assets/VRun_Scene copy.unity.meta
 fileFormatVersion: 2
 guid: d884093ad111a4402ad2b8b209e00e99
 DefaultImporter:
@@ -5,3 +6,12 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 176a42107ce66c44aa74a67424591597
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:VRun/Assets/TerrainSampleAssets/Prefabs/BushDry_A.prefab.meta

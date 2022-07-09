@@ -11,12 +11,16 @@ public class AlienAnimationStateController : MonoBehaviour
     public float deceleration =2.0f;
     public float maximumWalkVelocity = 0.5f;
     public float maximumRunVelocity = 2.0f;
+    public float crippleCount = 0.0f;
     // Start is called before the first frame update
     public bool obstacleHit;
+    public bool whileHit;
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetBool("obstacleHit",false);
         obstacleHit = animator.GetBool("obstacleHit");
+        
 
     }
     
@@ -36,25 +40,87 @@ public class AlienAnimationStateController : MonoBehaviour
         float jumpOrSlide = Input.acceleration.y;
 
         if(hit){
-            animator.SetBool("obstacleHit",true);
-        }else if(!hit){
-            animator.SetBool("obstacleHit",false);
+            obstacleHit = true;
+            crippleCount = 0.0f;
         }
+        if(obstacleHit){
+            crippleCount ++;
+            if(crippleCount < 300.0f){
+                obstacleHit = false;
+            }
+        }
+
         
 
-        float currentMaxVelocity = maximumRunVelocity;
+        float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
         // start walking to running
 
-        if(blendZ < currentMaxVelocity ){
-            blendZ += Time.deltaTime * acceleration;
+        if(!obstacleHit){
+            if(blendZ < maximumRunVelocity ){
+                blendZ += Time.deltaTime * acceleration;
+            }
+            // turn left
+            if((leftPress||turning < -0.3f) && (blendX > -2) ){
+                blendX -= Time.deltaTime * acceleration;
+            }
+            // turn right
+            if((rightPress||turning > 0.3f) && (blendX < 2) ){
+                blendX += Time.deltaTime * acceleration;
+            }
+            //Deceleration left/right
+            if((!leftPress||(turning>-0.3f&&turning<0.0f)) && (blendX < 0.0f)){
+                blendX += Time.deltaTime * deceleration;
+            }
+            if((!rightPress||(turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
+                blendX -= Time.deltaTime * deceleration;
+            }
+
+            // Set velocity on the x axis to zero
+            if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
+                blendX = 0.0f;
+            }
         }
-        // turn left
-        if((leftPress||turning < 0.3) && (blendX > -currentMaxVelocity) ){
-            blendX -= Time.deltaTime * acceleration;
-        }
-        // turn right
-        if((rightPress||turning > 0.3) && (blendX < currentMaxVelocity) ){
-            blendX += Time.deltaTime * acceleration;
+        // Slow down if obstacle hit
+        if(obstacleHit){
+            //slow to walk
+            if(blendZ>maximumWalkVelocity){
+                blendZ-=Time.deltaTime * deceleration;
+            }else if(blendZ<maximumWalkVelocity){
+                blendZ+=Time.deltaTime * deceleration;
+            }
+            //right
+            if(blendX>maximumWalkVelocity){
+                blendX-=Time.deltaTime * deceleration;
+            }else if(blendX<maximumWalkVelocity && blendX > 0.0f){
+                blendX+=Time.deltaTime * deceleration;
+            }
+            //left
+            if(blendX<-maximumWalkVelocity){
+                blendX+=Time.deltaTime * deceleration;
+            }else if(blendX>-maximumWalkVelocity && blendX < 0.0f){
+                 blendX-=Time.deltaTime * deceleration;
+            }
+
+            // turn left
+            if((leftPress||turning < -0.3f) && (blendX > -0.5) ){
+                blendX -= Time.deltaTime * acceleration;
+            }
+            // turn right
+            if((rightPress||turning > 0.3f) && (blendX < 0.5) ){
+                blendX += Time.deltaTime * acceleration;
+            }
+            //Deceleration left/right
+            if((!leftPress||(turning>-0.3f&&turning<0.0f)) && (blendX < 0.0f)){
+                blendX += Time.deltaTime * deceleration;
+            }
+            if((!rightPress||(turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
+                blendX -= Time.deltaTime * deceleration;
+            }
+
+            // Set velocity on the x axis to zero
+            if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
+                blendX = 0.0f;
+            }
         }
         // jump
         if(animator.GetBool("isJump") == true){
@@ -71,53 +137,26 @@ public class AlienAnimationStateController : MonoBehaviour
         }
 
         // slide
+        animator.SetBool("isSlide",false);
+        if((slidePress|| jumpOrSlide < -0.3)){
+            animator.SetBool("isSlide",false);
+        }
         if(animator.GetBool("isSlide") == true){
             animator.SetBool("isSlide",false);
         }
         if(slidePress || jumpOrSlide < -0.3){
-                animator.SetBool("isSlide",false);
+                animator.SetBool("isSlide",true);
         }
         if((slidePress|| jumpOrSlide < -0.3) && animator.GetBool("isSlide") == false){
             animator.SetBool("isSlide",true);
             slidePress = false;
         }
-
-        //Deceleration left/right
-        if((!leftPress||(turning>-0.3&&turning<0.0)) && (blendX < 0.0f)){
-            blendX += Time.deltaTime * deceleration;
-        }
-        if((!rightPress||(turning<0.3&&turning>0.0)) && (blendX > 0.0f)){
-            blendX -= Time.deltaTime * deceleration;
-        }
-
-        // Set velocity on the x axis to zero
-        if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
-            blendX = 0.0f;
-        }
-
-       
-
-        // lock left, else decelerate to the maximum walk velocity
-        if(leftPress && blendZ < -currentMaxVelocity){
-            blendZ = -currentMaxVelocity;
-        }
-        if(leftPress && obstacleHit && blendZ < -currentMaxVelocity){
-            blendZ -= Time.deltaTime * deceleration;
-            if(blendZ < -currentMaxVelocity && blendZ > (-currentMaxVelocity - 0.05f)){
-                blendZ = -currentMaxVelocity;
-            }
-        }
-
-        // lock right, else decelerate to the maximum walk velocity
-        if(rightPress && blendZ > currentMaxVelocity){
-            blendZ = currentMaxVelocity;
-        }
-        if(rightPress && obstacleHit && blendZ > currentMaxVelocity){
-            blendZ -= Time.deltaTime * deceleration;
-            if(blendZ > currentMaxVelocity && blendZ < (currentMaxVelocity - 0.05f)){
-                blendZ = currentMaxVelocity;
-            }
-        }
+        
+        
+        
+        
+        
+        
 
         animator.SetFloat("BlendZ",blendZ);
         animator.SetFloat("BlendX",blendX);

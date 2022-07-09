@@ -5,8 +5,8 @@ using UnityEngine;
 public class AlienAnimationStateController : MonoBehaviour
 {
     Animator animator;
-    float blendZ = 0.0f;
-    float blendX = 0.0f;
+    public float blendZ = 0.0f;
+    public float blendX = 0.0f;
     public float acceleration = 2.0f;
     public float deceleration =2.0f;
     public float maximumWalkVelocity = 0.5f;

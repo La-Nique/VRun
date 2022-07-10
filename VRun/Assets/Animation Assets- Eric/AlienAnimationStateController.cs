@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class AlienAnimationStateController : MonoBehaviour
 {
+    /*
+    //
+    //
+    private bool gyroEnabled;
+    private Gyroscope gyro;
+    //
+    //
+    */
     Animator animator;
     public float blendZ = 0.0f;
     public float blendX = 0.0f;
@@ -12,7 +20,6 @@ public class AlienAnimationStateController : MonoBehaviour
     public float maximumWalkVelocity = 0.5f;
     public float maximumRunVelocity = 2.0f;
     public float crippleCount = 0.0f;
-    // Start is called before the first frame update
     public bool obstacleHit;
     public bool whileHit;
     private CharacterController alienCharacterController;
@@ -23,7 +30,25 @@ public class AlienAnimationStateController : MonoBehaviour
         obstacleHit = animator.GetBool("obstacleHit");
         alienCharacterController = GetComponent<CharacterController>();
 
+        /*
+        ////
+        gyroEnabled = EnableGryo();
+        ////
+        */
     }
+
+    /*
+    ////
+    private bool EnableGryo(){
+        if(SystemInfo.supportsGyroscope){
+            gyro = Input.gyro;
+            gyro.enabled = true;
+            return true;
+        }
+        return false;
+    }
+    ////
+    */
     
     // Update is called once per frame
     void Update()
@@ -58,6 +83,7 @@ public class AlienAnimationStateController : MonoBehaviour
             transform.Rotate(new Vector3(0f, blendX*2, 0f));
         }
         
+        /*
 
         if(hit){
             obstacleHit = true;
@@ -70,36 +96,82 @@ public class AlienAnimationStateController : MonoBehaviour
             }
         }
 
-        
+        */
 
         float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
         // start walking to running
 
-        if(!obstacleHit){
-            if(blendZ < maximumRunVelocity ){
+
+        //accelerometer
+        if(blendZ < maximumRunVelocity ){
                 blendZ += Time.deltaTime * acceleration;
             }
             // turn left
-            if((leftPress||turning < -0.3f) && (blendX > -2) ){
-                blendX -= Time.deltaTime * acceleration;
+            if((turning > -1f && turning < 0f) && (blendX > -2.0f) ){
+                blendX -= Time.deltaTime * 0.3f;
             }
+            if((turning > 0f && turning < 1f) && (blendX < 0f)){
+                blendX += Time.deltaTime * 0.3f;
+            }
+            /*
+            if((turning > 0.3 && turning <1) && (blendX < 2.0f)){
+                blendX += Time.deltaTime * acceleration;
+            }
+            /*
+            /*
             // turn right
             if((rightPress||turning > 0.3f) && (blendX < 2) ){
                 blendX += Time.deltaTime * acceleration;
             }
+            
             //Deceleration left/right
-            if((!leftPress||(turning>-0.3f&&turning<0.0f)) && (blendX < 0.0f)){
+            //!left
+            if(((turning<-1f && turning > -0.8f)) && (blendX < 0.0f)){
                 blendX += Time.deltaTime * deceleration;
             }
+            //!right
+            if(((turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
+                blendX -= Time.deltaTime * deceleration;
+            }
+            
+            
+            // Set velocity on the x axis to zero
+            if(((turning>-0.3&&turning<0.0)) && ((turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
+                blendX = 0.0f;
+            }
+            */
+        // w a s d
+        /*
+        if(blendZ < maximumRunVelocity ){
+                blendZ += Time.deltaTime * acceleration;
+            }
+            // turn left
+            if((leftPress||(turning > -0.8f && turning < 0.0f) ) && (blendX > -2) ){
+                blendX -= Time.deltaTime * acceleration;
+            }
+            
+            // turn right
+            if((rightPress||turning > 0.3f) && (blendX < 2) ){
+                blendX += Time.deltaTime * acceleration;
+            }
+            
+            //Deceleration left/right
+            if((!leftPress||(turning<-1f && turning > -0.8f)) && (blendX < 0)){
+                blendX += Time.deltaTime * deceleration;
+            }
+            
             if((!rightPress||(turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
                 blendX -= Time.deltaTime * deceleration;
             }
-
+            
+            
             // Set velocity on the x axis to zero
             if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
                 blendX = 0.0f;
             }
-        }
+        */
+        
+        /*
         // Slow down if obstacle hit
         if(obstacleHit){
             //slow to walk
@@ -142,7 +214,7 @@ public class AlienAnimationStateController : MonoBehaviour
                 blendX = 0.0f;
             }
         }
-
+        */
         
 
         // jump
@@ -150,15 +222,16 @@ public class AlienAnimationStateController : MonoBehaviour
             animator.SetBool("isJump",false);
             
         }
-        if(jumpPress || jumpOrSlide > 0.3){
+        if(jumpPress || (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
                 animator.SetBool("isJump",false);
         }
-        if((jumpPress || jumpOrSlide > 0.3 ) && animator.GetBool("isJump") == false){
+        if((jumpPress || (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  ) && animator.GetBool("isJump") == false){
             animator.SetBool("isJump",true);
             jumpPress =  false;
             
         }
 
+        /*
         // slide
         animator.SetBool("isSlide",false);
         if((slidePress|| jumpOrSlide < -0.3)){
@@ -175,7 +248,7 @@ public class AlienAnimationStateController : MonoBehaviour
             slidePress = false;
         }
         
-        
+        */
         
         
         

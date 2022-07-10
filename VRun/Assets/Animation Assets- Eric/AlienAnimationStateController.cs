@@ -43,7 +43,7 @@ public class AlienAnimationStateController : MonoBehaviour
 
         //Move Character
         alienCharacterController.SimpleMove(new Vector3(0f,0f,0f));
-        alienCharacterController.Move(transform.forward * blendZ * speed * Time.deltaTime);
+        alienCharacterController.Move(transform.forward * blendZ * speed * 2 * Time.deltaTime);
         if(blendX < 0.0f){
             transform.position = new Vector3(transform.position.z, 0,0);
             alienCharacterController.Move(transform.position * blendX * Time.deltaTime * 0.05f);

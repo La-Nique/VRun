@@ -55,7 +55,7 @@ public class AlienAnimationStateController : MonoBehaviour
             
         }
         if(blendX != 0){
-            transform.Rotate(new Vector3(0f, blendX * 2, 0f));
+            transform.Rotate(new Vector3(0f, blendX*2, 0f));
         }
         
 

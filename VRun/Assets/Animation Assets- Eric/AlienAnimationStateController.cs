@@ -15,12 +15,13 @@ public class AlienAnimationStateController : MonoBehaviour
     // Start is called before the first frame update
     public bool obstacleHit;
     public bool whileHit;
+    private CharacterController alienCharacterController;
     void Start()
     {
         animator = GetComponent<Animator>();
         animator.SetBool("obstacleHit",false);
         obstacleHit = animator.GetBool("obstacleHit");
-        
+        alienCharacterController = GetComponent<CharacterController>();
 
     }
     
@@ -36,8 +37,27 @@ public class AlienAnimationStateController : MonoBehaviour
         bool isJump = animator.GetBool("isJump");
         bool runPress = Input.GetKey("left shift");
         bool hit = Input.GetKey("k");
+        float speed = 2.0f;
         float turning = Input.acceleration.x;
         float jumpOrSlide = Input.acceleration.y;
+
+        //Move Character
+        alienCharacterController.SimpleMove(new Vector3(0f,0f,0f));
+        alienCharacterController.Move(transform.forward * blendZ * speed * Time.deltaTime);
+        if(blendX < 0.0f){
+            transform.position = new Vector3(transform.position.z, 0,0);
+            alienCharacterController.Move(transform.position * blendX * Time.deltaTime * 0.05f);
+             
+        }
+        if(blendX > 0.0f){
+            transform.position = new Vector3(transform.position.z, 0,0);
+            alienCharacterController.Move(transform.position * blendX * Time.deltaTime * 0.05f);
+            
+        }
+        if(blendX != 0){
+            transform.Rotate(new Vector3(0f, blendX * 2, 0f));
+        }
+        
 
         if(hit){
             obstacleHit = true;
@@ -122,6 +142,9 @@ public class AlienAnimationStateController : MonoBehaviour
                 blendX = 0.0f;
             }
         }
+
+        
+
         // jump
         if(animator.GetBool("isJump") == true){
             animator.SetBool("isJump",false);

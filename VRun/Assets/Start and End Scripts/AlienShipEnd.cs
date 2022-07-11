@@ -27,8 +27,8 @@ public class AlienShipEnd : MonoBehaviour
         float distance = Mathf.Sqrt(((shipPosition.x - charPosition.x)* (shipPosition.x - charPosition.x)) + 
                                 ((shipPosition.y - charPosition.y)* (shipPosition.y - charPosition.y)) +
                                 ((shipPosition.z - charPosition.z)* (shipPosition.z - charPosition.z)));
-        if(distance < 20f){
-            SceneManager.LoadScene(SceneManager.GetSceneByName("Won Screen").buildIndex);
+        if(distance < 75f){
+            SceneManager.LoadScene(SceneManager.GetSceneByName("Won Screen").buildIndex+3);
         }
     }
 }

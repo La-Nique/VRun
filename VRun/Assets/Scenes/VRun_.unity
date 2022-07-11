@@ -229,6 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 4207a14823e50e6438f37b401c727159, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
+--- !u!1 &619903087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5113664386210071967, guid: c116b7497ab8ca34c9188965d4295e27, type: 3}
+  m_PrefabInstance: {fileID: 1568696847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &664107460
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d8302ab4c2b4d3aadb0022deae6d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 800226783}
+  mountainCam: {fileID: 1671596244}
+  startCam: {fileID: 619903087}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

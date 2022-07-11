@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class endgame : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class AlienShipEnd : MonoBehaviour
 {
     // Alien Ship drag onto another object. Make alien ship a child of another object...
     
@@ -12,7 +12,7 @@ public class endgame : MonoBehaviour
     // go to end screen.
     // if (x,y) character position then go to end screen.
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,13 @@ public class endgame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 charPosition = GameObject.FindGameObjectWithTag("CharacterScene1").transform.position;
+        Vector3 shipPosition = transform.position;
+        float distance = Mathf.Sqrt(((shipPosition.x - charPosition.x)* (shipPosition.x - charPosition.x)) + 
+                                ((shipPosition.y - charPosition.y)* (shipPosition.y - charPosition.y)) +
+                                ((shipPosition.z - charPosition.z)* (shipPosition.z - charPosition.z)));
+        if(distance < 20f){
+            SceneManager.LoadScene(SceneManager.GetSceneByName("Won Screen").buildIndex);
+        }
     }
 }

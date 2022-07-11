@@ -14,5 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Won Screen.unity
     guid: 8b2b8de43b9824742a4590fe984c86f0
+  - enabled: 1
+    path: Assets/Scenes/VR_Mars.unity
+    guid: 7bfcec93cf0e4434a8d7d56f2b22e39b
+  - enabled: 1
+    path: Assets/Scenes/FailedScreen_Mars.unity
+    guid: f86969964c37f4893beb2a10b375f243
+  - enabled: 1
+    path: Assets/Scenes/WonScreen_Mars.unity
+    guid: cbdd626d07258482395eb883c4acb5bc
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6db6d8a1611a24505b576ad7253f4b47, type: 2}

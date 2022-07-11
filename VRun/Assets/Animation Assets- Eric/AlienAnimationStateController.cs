@@ -24,9 +24,7 @@ public class AlienAnimationStateController : MonoBehaviour
     public bool obstacleHit;
     public bool whileHit;
     private CharacterController alienCharacterController;
-    Camera cam1 = GameObject.Find("MainCamera").GetComponent<Camera>();
-    Camera cam2 = GameObject.Find("Camera2").GetComponent<Camera>();
-    public bool startGame = cam1.isActiveAndEnabled;
+    public bool startGame = false;
     
     void Start()
     {
@@ -91,7 +89,7 @@ public class AlienAnimationStateController : MonoBehaviour
         float speed = 2.0f;
         float turning = Input.acceleration.x;
         float jumpOrSlide = Input.acceleration.y;
-        if(startGame){
+        if(startGame == true){
 
             Vector3 charPosition = transform.position;
             if(charPosition.y < -10){
@@ -285,6 +283,6 @@ public class AlienAnimationStateController : MonoBehaviour
 
             animator.SetFloat("BlendZ",blendZ);
             animator.SetFloat("BlendX",blendX);
-    }
+        }
     }
 }

@@ -6,30 +6,46 @@ public class CameraChange : MonoBehaviour
 {
     //public Camera[] cameras = GetAllCameras();
     //GetAllCameras(Camera[] cameras);
-    Camera cam1 = GameObject.Find("MainCamera").GetComponent<Camera>();
-    Camera cam2 = GameObject.Find("Camera2").GetComponent<Camera>();
-    private int currentCameraIndex;
+    //Camera cam1 = GameObject.Find("MainCamera").GetComponent<Camera>();
+    //Camera cam2 = GameObject.Find("Camera2").GetComponent<Camera>();
     // Start is called before the first frame update
+    private AlienAnimationStateController alienChar;
+    public GameObject start;
+    public GameObject mountainCam;
+    public GameObject startCam;
     void Start()
     {
-        currentCameraIndex = 0;
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(true);
+        startCam.SetActive(false);
+        mountainCam.SetActive(true);
+        alienChar = start.GetComponent<AlienAnimationStateController>();
         StartCoroutine(waiter());
-        cam2.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(true);
-        
+       
+        //startCharMovement();
     }
     IEnumerator waiter()
         {
             
             //Wait for 4 seconds
             yield return new WaitForSecondsRealtime(4);
+             mountainCam.SetActive(false); 
+            startCam.SetActive(true);
+            alienChar.startGame = true;
         }
 
     // Update is called once per frame
+    
     void Update()
     {
         
+        
+        
+        
+        
     }
+    void startCharMovement()
+    {
+       
+        
+    }
+    
 }

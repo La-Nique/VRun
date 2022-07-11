@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 664107463}
   - component: {fileID: 664107462}
   - component: {fileID: 664107461}
+  - component: {fileID: 664107465}
   m_Layer: 0
   m_Name: Training Room
   m_TagString: Untagged
@@ -326,6 +327,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 8.191, y: 8.224, z: 0.561}
+--- !u!114 &664107465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664107460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d8302ab4c2b4d3aadb0022deae6d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +458,8 @@ MonoBehaviour:
   crippleCount: 0
   obstacleHit: 0
   whileHit: 0
+  startGame: 0
+  restartDelay: 1
 --- !u!95 &800226785
 Animator:
   serializedVersion: 3
@@ -985,7 +1000,6 @@ GameObject:
   - component: {fileID: 1671596247}
   - component: {fileID: 1671596246}
   - component: {fileID: 1671596245}
-  - component: {fileID: 1671596248}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Camera2
@@ -1058,18 +1072,6 @@ Transform:
   m_Father: {fileID: 664107464}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -4.096, y: -16.057, z: 1.848}
---- !u!114 &1671596248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671596244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d8302ab4c2b4d3aadb0022deae6d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2025727930
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class WolfCharAnimationStateController : MonoBehaviour
     public Transform charPosition;
     public float distance = -5f;
     //public float offset = 2.7f;
-    public float delay = 0.04f;
+    public float delay = 0.03f;
 
     private CharacterController wolfController;
     public AudioSource source;

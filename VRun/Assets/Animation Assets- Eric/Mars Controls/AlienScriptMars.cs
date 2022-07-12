@@ -64,7 +64,7 @@ public class AlienScriptMars : MonoBehaviour
             gameHasEnded = true;
             Debug.Log("YOU DIED. GAME OVER.");
             // Restart game.
-            SceneManager.LoadScene(SceneManager.GetSceneByName("FailedScreen_Mars").buildIndex +2);
+            SceneManager.LoadScene(SceneManager.GetSceneByName("FailedScreen_Mars").buildIndex +5);
         }
         void Restart(){
             //Jump to a certain scene.

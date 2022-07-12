@@ -28,7 +28,7 @@ public class madeItHome : MonoBehaviour
                                 ((shipPosition.y - charPosition.y)* (shipPosition.y - charPosition.y)) +
                                 ((shipPosition.z - charPosition.z)* (shipPosition.z - charPosition.z)));
         if(distance < 200f){
-            SceneManager.LoadScene(SceneManager.GetSceneByName("WonScreen_Mars").buildIndex+5);
+            SceneManager.LoadScene(SceneManager.GetSceneByName("WonScreen_Mars").buildIndex+6);
         }
     }
 }

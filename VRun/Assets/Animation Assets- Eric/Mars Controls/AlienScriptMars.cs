@@ -100,7 +100,7 @@ public class AlienScriptMars : MonoBehaviour
 
             //Move Character
             alienCharacterController.SimpleMove(new Vector3(0f,0f,0f));
-            alienCharacterController.Move(transform.forward * blendZ * speed * 2 * Time.deltaTime);
+            alienCharacterController.Move(transform.forward * blendZ * speed * 8 * Time.deltaTime);
             if(blendX < 0.0f){
                 transform.position = new Vector3(transform.position.z, 0,0);
                 alienCharacterController.Move(transform.position * blendX * Time.deltaTime * 0.05f);
@@ -255,6 +255,8 @@ public class AlienScriptMars : MonoBehaviour
             }
             if((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  )*/ && animator.GetBool("isJump") == false)){
                 animator.SetBool("isJump",true);
+                transform.position = new Vector3(0, transform.position.y,0);
+                alienCharacterController.Move(transform.position * Time.deltaTime * 0.5f);
                 jumpPress =  false;
                 
             }

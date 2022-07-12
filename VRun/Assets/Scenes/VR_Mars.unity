@@ -679,8 +679,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charPosition: {fileID: 163693124}
-  offset: 10
+  offset: 2
   delay: 0.1
+  distance: 20
 --- !u!1001 &458267656
 PrefabInstance:
   m_ObjectHideFlags: 0

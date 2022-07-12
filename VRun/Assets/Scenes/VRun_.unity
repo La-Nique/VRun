@@ -140,22 +140,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57d264468d4840218cc1f4eeea67c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &302789790
-Rigidbody:
+  animationStateController: {fileID: 800226784}
+  charPosition: {fileID: 1140431632}
+  distance: 4
+  delay: 0.02
+--- !u!143 &302789788
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302789786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Height: 3
+  m_Radius: 2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &529860997
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,15 +331,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 477254, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.73
+      value: 18.59
       objectReference: {fileID: 0}
     - target: {fileID: 477254, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12227553
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 477254, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.73
+      value: 29.95
       objectReference: {fileID: 0}
     - target: {fileID: 477254, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
       propertyPath: m_LocalRotation.w
@@ -893,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5371560a5dbc24ddba5fa72bd021cf05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.835
+      value: 20.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5371560a5dbc24ddba5fa72bd021cf05, type: 3}
       propertyPath: m_LocalPosition.y
@@ -901,7 +907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5371560a5dbc24ddba5fa72bd021cf05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.382
+      value: 32.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5371560a5dbc24ddba5fa72bd021cf05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1062,8 +1068,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charPosition: {fileID: 1140431632}
-  offset: 2.7
+  distance: -1e-13
+  offset: 1
   delay: 0.02
+--- !u!143 &1347359655
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347359651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1568696847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1429728536131650682, guid: c116b7497ab8ca34c9188965d4295e27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 1429728536131650682, guid: c116b7497ab8ca34c9188965d4295e27, type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,11 +8,23 @@ public class WolfCharAnimationStateController : MonoBehaviour
     float blend = 0.0f;
     //private float latestDirectionChangeTime;
     //private readonly float directionChangeTime = 3f;
-    private float characterVelocity = 0.5f;
+    //private float characterVelocity = 0.5f;
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
-    private AlienAnimationStateController animationStateController;
+    public AlienAnimationStateController animationStateController;
     bool didAttack = false;
+
+    public Transform charPosition;
+    public float distance = 4f;
+    //public float offset = 2.7f;
+    public float delay = 0.02f;
+
+    private CharacterController wolfController;
+
+
+
+
+
     //public Transform charPosition;
     /////////
     /*
@@ -28,24 +40,37 @@ public class WolfCharAnimationStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        wolfController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        animationStateController = FindObjectOfType(typeof(AlienAnimationStateController)) as AlienAnimationStateController;
-        //latestDirectionChangeTime = 0f;
-        calcuateNewMovementVector();
+        
     }
 
-    void calcuateNewMovementVector(){
-     //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
-     movementDirection = new Vector3(0.0f, 0.0f,-1.5f).normalized;
-     movementPerSecond = movementDirection * characterVelocity;
- }
 
     
     // Update is called once per frame
     void Update()
     {
+        
+        if(animationStateController.startGame == false){
+            distance = 4;
+        }else if(distance > -9){
+            distance--;
+        }
         bool isAttack = animator.GetBool("isAttack");
-        bool obstacleHit = animationStateController.obstacleHit;
+
+        Vector3 follow = charPosition.position - charPosition.forward * distance ;
+        transform.position +=(follow - transform.position) * delay;
+        if(animationStateController.blendX != 0){
+            transform.Rotate(new Vector3(0f, animationStateController.blendX, 0f));
+        }
+        transform.LookAt(charPosition.transform);
+
+
+        
+        
+
+        //bool obstacleHit = animationStateController.obstacleHit;
+        /*
         if(transform.position.z <= -1.5f){
             transform.position = new Vector3(0, 0,
             transform.position.z - (movementPerSecond.z * Time.deltaTime));
@@ -62,8 +87,9 @@ public class WolfCharAnimationStateController : MonoBehaviour
             transform.position = new Vector3(0, 0,
             transform.position.z + (movementPerSecond.z * Time.deltaTime));
         }
+        didAttack = false;
 
-        
+        */
         
         //animator.SetBool("isAttack", false);
         

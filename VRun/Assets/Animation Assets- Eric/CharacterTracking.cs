@@ -5,22 +5,27 @@ using UnityEngine;
 public class CharacterTracking : MonoBehaviour
 {
     public Transform charPosition;
-    public float distance = -999999999999f;
-    public float offset = 0.01f;
-    public float delay = 0.000001f;
-    
+    public float distance = -0.0000001f;
+    public float offset = 3f;
+    public float delay = 0.02f;
+    /*
+    public float distance = 1;
+    public float offset = 2f;
+    public float delay = 0.04f;
+    */
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 follow = charPosition.position - (charPosition.forward * distance);
+        Vector3 follow = charPosition.position - charPosition.forward * distance;
         follow.y += offset;
-        transform.position += (follow - transform.position) * delay;
+        transform.position +=(follow - transform.position) * delay;
         transform.LookAt(charPosition.transform);
     }
 }

@@ -15,11 +15,12 @@ public class WolfCharAnimationStateController : MonoBehaviour
     bool didAttack = false;
 
     public Transform charPosition;
-    public float distance = 4f;
+    public float distance = -5f;
     //public float offset = 2.7f;
-    public float delay = 0.02f;
+    public float delay = 0.04f;
 
     private CharacterController wolfController;
+    public AudioSource source;
 
 
 
@@ -42,6 +43,7 @@ public class WolfCharAnimationStateController : MonoBehaviour
     {
         wolfController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         
     }
 
@@ -52,8 +54,11 @@ public class WolfCharAnimationStateController : MonoBehaviour
     {
         
         if(animationStateController.startGame == false){
-            distance = 4;
-        }else if(distance > -9){
+            distance = 3;
+            source.mute = true;
+        }else if(distance > -6 && animationStateController.startGame == true){
+            //source.unmute();
+            source.mute = false;
             distance--;
         }
         bool isAttack = animator.GetBool("isAttack");

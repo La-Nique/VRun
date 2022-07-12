@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterTracking : MonoBehaviour
 {
     public Transform charPosition;
-    public float distance = -0.0000001f;
+    public float distance = 1f;
     public float offset = 3f;
     public float delay = 0.02f;
     /*

@@ -13,6 +13,7 @@ public class CameraChange : MonoBehaviour
     public GameObject start;
     public GameObject mountainCam;
     public GameObject startCam;
+
     void Start()
     {
         startCam.SetActive(false);
@@ -22,30 +23,25 @@ public class CameraChange : MonoBehaviour
        
         //startCharMovement();
     }
+
     IEnumerator waiter()
-        {
-            
-            //Wait for 4 seconds
-            yield return new WaitForSecondsRealtime(4);
-             mountainCam.SetActive(false); 
-            startCam.SetActive(true);
-            alienChar.startGame = true;
-        }
+    {
+        // Wait for 12 seconds
+        yield return new WaitForSecondsRealtime(12);
+        mountainCam.SetActive(false); 
+        startCam.SetActive(true);
+        alienChar.startGame = true;
+    }
 
     // Update is called once per frame
-    
     void Update()
     {
         
-        
-        
-        
-        
     }
+
     void startCharMovement()
     {
        
-        
     }
     
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class madeItHome : MonoBehaviour
 {
     // Alien Ship drag onto another object. Make alien ship a child of another object...
@@ -25,9 +26,9 @@ public class madeItHome : MonoBehaviour
         Vector3 charPosition = GameObject.FindGameObjectWithTag("CharacterScene2").transform.position;
         Vector3 shipPosition = transform.position;
         float distance = Mathf.Sqrt(((shipPosition.x - charPosition.x)* (shipPosition.x - charPosition.x)) + 
-                                ((shipPosition.y - charPosition.y)* (shipPosition.y - charPosition.y)) +
-                                ((shipPosition.z - charPosition.z)* (shipPosition.z - charPosition.z)));
-        if(distance < 200f){
+                                    ((shipPosition.y - charPosition.y)* (shipPosition.y - charPosition.y)) +
+                                    ((shipPosition.z - charPosition.z)* (shipPosition.z - charPosition.z)));
+        if(distance < 150f){
             SceneManager.LoadScene(SceneManager.GetSceneByName("WonScreen_Mars").buildIndex+6);
         }
     }

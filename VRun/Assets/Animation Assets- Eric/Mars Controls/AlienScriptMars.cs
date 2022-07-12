@@ -66,12 +66,7 @@ public class AlienScriptMars : MonoBehaviour
             // Restart game.
             SceneManager.LoadScene(SceneManager.GetSceneByName("FailedScreen_Mars").buildIndex +5);
         }
-        void Restart(){
-            //Jump to a certain scene.
-            //SceneManager.LoadScene("Failed Scene")
-            //return to current scene
-        
-        }
+       
     }
     
     // Update is called once per frame
@@ -93,7 +88,7 @@ public class AlienScriptMars : MonoBehaviour
        
 
             Vector3 charPosition = transform.position;
-            if(charPosition.y < -10){
+            if(charPosition.y < 2){
                 Failed();
             } 
 

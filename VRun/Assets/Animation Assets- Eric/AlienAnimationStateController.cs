@@ -127,9 +127,9 @@ public class AlienAnimationStateController : MonoBehaviour
             float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
             // start walking to running
 
-
-            //accelerometer
             /*
+            //accelerometer
+            
                 if(blendZ < maximumRunVelocity ){
                     blendZ += Time.deltaTime * acceleration;
                 }
@@ -160,9 +160,9 @@ public class AlienAnimationStateController : MonoBehaviour
                 if((turning >-0.2f && turning <0f) && (turning < 0.2f && turning > 0f) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
                     blendX = 0.0f;
                 }
-            */
-            //accelerometer
             
+            //accelerometer
+            */
             // w a s d + space
             
             if(blendZ < maximumRunVelocity ){

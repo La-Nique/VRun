@@ -54,9 +54,9 @@ public class WolfCharAnimationStateController : MonoBehaviour
     {
         
         if(animationStateController.startGame == false){
-            distance = 3;
+            distance = 4;
             source.mute = true;
-        }else if(distance > -6 && animationStateController.startGame == true){
+        }else if(distance > -4 && animationStateController.startGame == true){
             //source.unmute();
             source.mute = false;
             distance--;

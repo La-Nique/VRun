@@ -250,8 +250,6 @@ public class AlienScriptMars : MonoBehaviour
             }
             if((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  )*/ && animator.GetBool("isJump") == false)){
                 animator.SetBool("isJump",true);
-                transform.position = new Vector3(0, transform.position.y,0);
-                alienCharacterController.Move(transform.position * Time.deltaTime * 0.5f);
                 jumpPress =  false;
                 
             }

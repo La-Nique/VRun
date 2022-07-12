@@ -17,8 +17,6 @@ public class MoveTerrainController : MonoBehaviour
     {
         float sidePositionX = AlienController.blendZ;
         float forwardPositionZ = AlienController.blendX;
-        float rightBoundary;
-        float leftBoundary;
 
         transform.position = new Vector3(0, 0,
             transform.position.z - (forwardPositionZ * Time.deltaTime));

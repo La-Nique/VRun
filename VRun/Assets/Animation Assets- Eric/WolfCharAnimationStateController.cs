@@ -12,7 +12,7 @@ public class WolfCharAnimationStateController : MonoBehaviour
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
     public AlienAnimationStateController animationStateController;
-    bool didAttack = false;
+    //bool didAttack = false;
 
     public Transform charPosition;
     public float distance = -5f;

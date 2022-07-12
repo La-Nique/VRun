@@ -66,12 +66,7 @@ public class AlienAnimationStateController : MonoBehaviour
             // Restart game.
             SceneManager.LoadScene(SceneManager.GetSceneByName("Failed Screen").buildIndex +2);
         }
-        void Restart(){
-            //Jump to a certain scene.
-            //SceneManager.LoadScene("Failed Scene")
-            //return to current scene
         
-        }
     }
     
     // Update is called once per frame
@@ -166,7 +161,9 @@ public class AlienAnimationStateController : MonoBehaviour
                     blendX = 0.0f;
                 }
             */
-            // w a s d
+            //accelerometer
+            
+            // w a s d + space
             
             if(blendZ < maximumRunVelocity ){
                     blendZ += Time.deltaTime * acceleration;
@@ -196,7 +193,7 @@ public class AlienAnimationStateController : MonoBehaviour
                     blendX = 0.0f;
                 }
             
-            
+            // w a s d + space
             
             /*
             // Slow down if obstacle hit

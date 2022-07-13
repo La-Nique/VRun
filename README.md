@@ -8,3 +8,4 @@ VRun is a VR integrated running game where the main character is an Alien visiti
 
   
 
+[Directions and Installation.docx](https://github.com/La-Nique/VRun/files/9106600/Directions.and.Installation.docx)

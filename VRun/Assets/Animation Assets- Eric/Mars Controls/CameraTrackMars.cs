@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Credit to James Brady on Youtube for the algorithm below
+// https://www.youtube.com/watch?v=517eJql_zd4&t=373s&ab_channel=JamesBrady
+
 public class CameraTrackMars : MonoBehaviour
 {
     public Transform charPosition;

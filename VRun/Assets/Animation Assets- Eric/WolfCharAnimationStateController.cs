@@ -39,13 +39,17 @@ public class WolfCharAnimationStateController : MonoBehaviour
         }
         bool isAttack = animator.GetBool("isAttack");
 
+        // Credit to James Brady on Youtube for the algorithm below
+        // https://www.youtube.com/watch?v=517eJql_zd4&t=373s&ab_channel=JamesBrady
+        
         Vector3 follow = charPosition.position - charPosition.forward * distance ;
         transform.position +=(follow - transform.position) * delay;
         if(animationStateController.blendX != 0){
             transform.Rotate(new Vector3(0f, animationStateController.blendX, 0f));
         }
         transform.LookAt(charPosition.transform);
-
+        //
+        //
 
         
         

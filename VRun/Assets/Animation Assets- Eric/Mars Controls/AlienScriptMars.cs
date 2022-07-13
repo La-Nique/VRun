@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Credit to iHeartGameDev on Youtube for the blendX/blendZ implementation which
+// related to his methodology in the Animator for the character and wolf
+// https://www.youtube.com/watch?v=-FhvQDqmgmU&list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO
+
 public class AlienScriptMars : MonoBehaviour
 {
     /*
@@ -130,7 +134,7 @@ public class AlienScriptMars : MonoBehaviour
 
 
             //accelerometer
-            /*
+            
                 if(blendZ < maximumRunVelocity ){
                     blendZ += Time.deltaTime * acceleration;
                 }
@@ -163,7 +167,7 @@ public class AlienScriptMars : MonoBehaviour
                 }
             
             // w a s d
-            */
+            /*
             if(blendZ < maximumRunVelocity ){
                     blendZ += Time.deltaTime * acceleration;
                 }
@@ -193,7 +197,7 @@ public class AlienScriptMars : MonoBehaviour
                 }
             
             
-            
+            */
             /*
             // Slow down if obstacle hit
             if(obstacleHit){
@@ -245,10 +249,10 @@ public class AlienScriptMars : MonoBehaviour
                 animator.SetBool("isJump",false);
                 
             }
-            if(jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/ ){
+            if(/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
                     animator.SetBool("isJump",false);
             }
-            if((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/  ) && animator.GetBool("isJump") == false){
+            if((/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  ) && animator.GetBool("isJump") == false){
                 animator.SetBool("isJump",true);
                 transform.position = new Vector3(0, transform.position.y,0);
                 alienCharacterController.Move(transform.position * Time.deltaTime * 0.5f);

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Credit to iHeartGameDev on Youtube for the blendX/blendZ implementation which
+// related to his methodology in the Animator for the character and wolf
+// https://www.youtube.com/watch?v=-FhvQDqmgmU&list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO
 public class AlienAnimationStateController : MonoBehaviour
 {
     Animator animator;
@@ -97,7 +100,7 @@ public class AlienAnimationStateController : MonoBehaviour
             */
 
             float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
-            /*
+            
             //accelerometer
             
                 if(blendZ < maximumRunVelocity ){
@@ -110,7 +113,7 @@ public class AlienAnimationStateController : MonoBehaviour
                     }
                     blendX -= Time.deltaTime * 0.5f;
                 }
-                // center stop turning right
+                // center stop turning left
                 if((turning >-0.2f && turning <0f) && blendX<0.0f){
                     blendX = 0f;
                     //blendX += Time.deltaTime * 1f;
@@ -132,7 +135,7 @@ public class AlienAnimationStateController : MonoBehaviour
                 }
             
             //accelerometer
-            */
+            
             // w a s d + space
             
             if(blendZ < maximumRunVelocity ){
@@ -215,10 +218,10 @@ public class AlienAnimationStateController : MonoBehaviour
                 animator.SetBool("isJump",false);
                 
             }
-            if(jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/ ){
+            if(/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
                     animator.SetBool("isJump",false);
             }
-            if(((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/)   && animator.GetBool("isJump") == false)){
+            if(((/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5))   && animator.GetBool("isJump") == false)){
                 animator.SetBool("isJump",true);
                 jumpPress =  false;
                 

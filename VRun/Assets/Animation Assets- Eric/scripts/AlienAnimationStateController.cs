@@ -61,6 +61,7 @@ public class AlienAnimationStateController : MonoBehaviour
         float jumpOrSlide = Input.acceleration.y;
         if(startGame == true){
 
+            //Character falls into river
             Vector3 charPosition = transform.position;
             if(charPosition.y < -10){
                 Failed();
@@ -84,89 +85,57 @@ public class AlienAnimationStateController : MonoBehaviour
                 transform.Rotate(new Vector3(0f, blendX*2, 0f));
             }
             
-            /*
-
-            if(hit){
-                obstacleHit = true;
-                crippleCount = 0.0f;
-            }
-            if(obstacleHit){
-                crippleCount ++;
-                if(crippleCount < 300.0f){
-                    obstacleHit = false;
-                }
-            }
-
-            */
+            
 
             float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
             
             //accelerometer
             
-                if(blendZ < maximumRunVelocity ){
-                    blendZ += Time.deltaTime * acceleration;
+            if(blendZ < maximumRunVelocity ){
+                blendZ += Time.deltaTime * acceleration;
+            }
+            // turn left
+            if((turning <-0.2f && turning >-1f) && (blendX > -2.0f) ){
+                if(blendX > 0){
+                     blendX = 0;
                 }
-                // turn left
-                if((turning <-0.2f && turning >-1f) && (blendX > -2.0f) ){
-                    if(blendX > 0){
-                        blendX = 0;
-                    }
-                    blendX -= Time.deltaTime * 0.5f;
+                blendX -= Time.deltaTime * 0.5f;
+            }
+            // center stop turning left
+            if((turning >-0.2f && turning <0f) && blendX<0.0f){
+                blendX = 0f;
+                //blendX += Time.deltaTime * 1f;
+             }
+            //right
+            if((turning > 0.2f && turning < 1f) && (blendX < 2f)){
+                if(blendX < 0){
+                    blendX = 0;
                 }
-                // center stop turning left
-                if((turning >-0.2f && turning <0f) && blendX<0.0f){
-                    blendX = 0f;
-                    //blendX += Time.deltaTime * 1f;
-                }
-                //right
-                if((turning > 0.2f && turning < 1f) && (blendX < 2f)){
-                    if(blendX < 0){
-                        blendX = 0;
-                    }
-                    blendX += Time.deltaTime * 0.5f;
-                }
-                //center stop turning right
-                if((turning < 0.2f && turning > 0f) && (blendX > 0f)){
-                    blendX = 0f;
-                }
-                // Set velocity on the x axis to zero
-                if((turning >-0.2f && turning <0f) && (turning < 0.2f && turning > 0f) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
-                    blendX = 0.0f;
-                }
-            
+                blendX += Time.deltaTime * 0.5f;
+            }
+            //center stop turning right
+            if((turning < 0.2f && turning > 0f) && (blendX > 0f)){
+                blendX = 0f;
+            }
+            // Set velocity on the x axis to zero
+            if((turning >-0.2f && turning <0f) && (turning < 0.2f && turning > 0f) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
+                blendX = 0.0f;
+            }
             //accelerometer
             
-            // w a s d + space
-            
-            if(blendZ < maximumRunVelocity ){
-                    blendZ += Time.deltaTime * acceleration;
-                }
-                // turn left
-                if((leftPress||(turning > -0.8f && turning < 0.0f) ) && (blendX > -2) ){
-                    blendX -= Time.deltaTime * acceleration;
-                }
+            // jump
+            if(animator.GetBool("isJump") == true){
+                animator.SetBool("isJump",false);
                 
-                // turn right
-                if((rightPress||turning > 0.3f) && (blendX < 2) ){
-                    blendX += Time.deltaTime * acceleration;
-                }
+            }
+            if( (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
+                    animator.SetBool("isJump",false);
+            }
+            if((( (jumpOrSlide > -0.9 && jumpOrSlide < 0.5))   && animator.GetBool("isJump") == false)){
+                animator.SetBool("isJump",true);
+                jumpPress =  false;
                 
-                //Deceleration left/right
-                if((!leftPress||(turning<-1f && turning > -0.8f)) && (blendX < 0)){
-                    blendX += Time.deltaTime * deceleration;
-                }
-                
-                if((!rightPress||(turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
-                    blendX -= Time.deltaTime * deceleration;
-                }
-                
-                
-                // Set velocity on the x axis to zero
-                if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
-                    blendX = 0.0f;
-                }
-            
-            // w a s d + space
+            }
             
             /*
             // Slow down if obstacle hit
@@ -213,20 +182,21 @@ public class AlienAnimationStateController : MonoBehaviour
             }
             */
             
-            // jump
-            if(animator.GetBool("isJump") == true){
-                animator.SetBool("isJump",false);
-                
+            
+            /*
+
+            if(hit){
+                obstacleHit = true;
+                crippleCount = 0.0f;
             }
-            if(/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
-                    animator.SetBool("isJump",false);
-            }
-            if(((/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5))   && animator.GetBool("isJump") == false)){
-                animator.SetBool("isJump",true);
-                jumpPress =  false;
-                
+            if(obstacleHit){
+                crippleCount ++;
+                if(crippleCount < 300.0f){
+                    obstacleHit = false;
+                }
             }
 
+            */
             /*
             // slide
             animator.SetBool("isSlide",false);
@@ -246,10 +216,6 @@ public class AlienAnimationStateController : MonoBehaviour
             
             */
             
-            
-            
-            
-
             animator.SetFloat("BlendZ",blendZ);
             animator.SetFloat("BlendX",blendX);
         }

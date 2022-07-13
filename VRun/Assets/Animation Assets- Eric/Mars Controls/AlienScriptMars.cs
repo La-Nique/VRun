@@ -90,7 +90,7 @@ public class AlienScriptMars : MonoBehaviour
         float jumpOrSlide = Input.acceleration.y;
         
        
-
+            // Character falls into lava
             Vector3 charPosition = transform.position;
             if(charPosition.y < 2){
                 Failed();
@@ -114,6 +114,61 @@ public class AlienScriptMars : MonoBehaviour
                 transform.Rotate(new Vector3(0f, blendX*2, 0f));
             }
             
+            
+
+            float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
+            // start walking to running
+
+
+            //accelerometer
+            
+            if(blendZ < maximumRunVelocity ){
+                blendZ += Time.deltaTime * acceleration;
+            }
+            // turn left
+            if((turning <-0.2f && turning >-1f) && (blendX > -2.0f) ){
+                if(blendX > 0){
+                     blendX = 0;
+                }
+                blendX -= Time.deltaTime * 0.5f;
+            }
+            // center stop turning left
+            if((turning >-0.2f && turning <0f) && blendX<0.0f){
+                blendX = 0f;
+                //blendX += Time.deltaTime * 1f;
+             }
+            //right
+            if((turning > 0.2f && turning < 1f) && (blendX < 2f)){
+                if(blendX < 0){
+                    blendX = 0;
+                }
+                blendX += Time.deltaTime * 0.5f;
+            }
+            //center stop turning right
+            if((turning < 0.2f && turning > 0f) && (blendX > 0f)){
+                blendX = 0f;
+            }
+            // Set velocity on the x axis to zero
+            if((turning >-0.2f && turning <0f) && (turning < 0.2f && turning > 0f) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
+                blendX = 0.0f;
+            }
+            //accelerometer
+            // jump
+            if(animator.GetBool("isJump") == true){
+                animator.SetBool("isJump",false);
+                
+            }
+            if( (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
+                    animator.SetBool("isJump",false);
+            }
+            if(( (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ) && animator.GetBool("isJump") == false){
+                animator.SetBool("isJump",true);
+                transform.position = new Vector3(0, transform.position.y,0);
+                alienCharacterController.Move(transform.position * Time.deltaTime * 0.5f);
+                jumpPress =  false;
+                
+            }
+
             /*
 
             if(hit){
@@ -128,76 +183,7 @@ public class AlienScriptMars : MonoBehaviour
             }
 
             */
-
-            float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
-            // start walking to running
-
-
-            //accelerometer
             
-                if(blendZ < maximumRunVelocity ){
-                    blendZ += Time.deltaTime * acceleration;
-                }
-                // turn left
-                if((turning <-0.2f && turning >-1f) && (blendX > -2.0f) ){
-                    if(blendX > 0){
-                        blendX = 0;
-                    }
-                    blendX -= Time.deltaTime * 0.5f;
-                }
-                // center stop turning right
-                if((turning >-0.2f && turning <0f) && blendX<0.0f){
-                    blendX = 0f;
-                    //blendX += Time.deltaTime * 1f;
-                }
-                //right
-                if((turning > 0.2f && turning < 1f) && (blendX < 2f)){
-                    if(blendX < 0){
-                        blendX = 0;
-                    }
-                    blendX += Time.deltaTime * 0.5f;
-                }
-                //center stop turning right
-                if((turning < 0.2f && turning > 0f) && (blendX > 0f)){
-                    blendX = 0f;
-                }
-                // Set velocity on the x axis to zero
-                if((turning >-0.2f && turning <0f) && (turning < 0.2f && turning > 0f) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
-                    blendX = 0.0f;
-                }
-            
-            // w a s d
-            /*
-            if(blendZ < maximumRunVelocity ){
-                    blendZ += Time.deltaTime * acceleration;
-                }
-                // turn left
-                if((leftPress||(turning > -0.8f && turning < 0.0f) ) && (blendX > -2) ){
-                    blendX -= Time.deltaTime * acceleration;
-                }
-                
-                // turn right
-                if((rightPress||turning > 0.3f) && (blendX < 2) ){
-                    blendX += Time.deltaTime * acceleration;
-                }
-                
-                //Deceleration left/right
-                if((!leftPress||(turning<-1f && turning > -0.8f)) && (blendX < 0)){
-                    blendX += Time.deltaTime * deceleration;
-                }
-                
-                if((!rightPress||(turning<0.3f&&turning>0.0f)) && (blendX > 0.0f)){
-                    blendX -= Time.deltaTime * deceleration;
-                }
-                
-                
-                // Set velocity on the x axis to zero
-                if((!leftPress||(turning>-0.3&&turning<0.0)) && (!rightPress||(turning<0.3&&turning>0.0)) && blendX != 0.0f && (blendX > -0.05f && blendX < 0.05f)){
-                    blendX = 0.0f;
-                }
-            
-            
-            */
             /*
             // Slow down if obstacle hit
             if(obstacleHit){
@@ -244,21 +230,7 @@ public class AlienScriptMars : MonoBehaviour
             */
             
 
-            // jump
-            if(animator.GetBool("isJump") == true){
-                animator.SetBool("isJump",false);
-                
-            }
-            if(/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) ){
-                    animator.SetBool("isJump",false);
-            }
-            if((/*jumpPress ||*/ (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  ) && animator.GetBool("isJump") == false){
-                animator.SetBool("isJump",true);
-                transform.position = new Vector3(0, transform.position.y,0);
-                alienCharacterController.Move(transform.position * Time.deltaTime * 0.5f);
-                jumpPress =  false;
-                
-            }
+            
 
             /*
             // slide

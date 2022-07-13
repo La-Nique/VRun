@@ -5,14 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class AlienAnimationStateController : MonoBehaviour
 {
-    /*
-    //
-    //
-    private bool gyroEnabled;
-    private Gyroscope gyro;
-    //
-    //
-    */
     Animator animator;
     public float blendZ = 0.0f;
     public float blendX = 0.0f;
@@ -20,40 +12,20 @@ public class AlienAnimationStateController : MonoBehaviour
     public float deceleration =2.0f;
     public float maximumWalkVelocity = 0.5f;
     public float maximumRunVelocity = 2.0f;
-    public float crippleCount = 0.0f;
-    public bool obstacleHit;
-    public bool whileHit;
+    //public float crippleCount = 0.0f;
+    //public bool obstacleHit;
+    //public bool whileHit;
     private CharacterController alienCharacterController;
     public bool startGame = false;
     
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.SetBool("obstacleHit",false);
-        obstacleHit = animator.GetBool("obstacleHit");
+        //animator.SetBool("obstacleHit",false);
+        //obstacleHit = animator.GetBool("obstacleHit");
         alienCharacterController = GetComponent<CharacterController>();
         
-        
-
-        /*
-        ////
-        gyroEnabled = EnableGryo();
-        ////
-        */
     }
-
-    /*
-    ////
-    private bool EnableGryo(){
-        if(SystemInfo.supportsGyroscope){
-            gyro = Input.gyro;
-            gyro.enabled = true;
-            return true;
-        }
-        return false;
-    }
-    ////
-    */
 
     bool gameHasEnded = false;
 
@@ -125,8 +97,6 @@ public class AlienAnimationStateController : MonoBehaviour
             */
 
             float currentMaxVelocity = runPress ? maximumRunVelocity : maximumWalkVelocity;
-            // start walking to running
-
             /*
             //accelerometer
             
@@ -240,16 +210,15 @@ public class AlienAnimationStateController : MonoBehaviour
             }
             */
             
-
             // jump
             if(animator.GetBool("isJump") == true){
                 animator.SetBool("isJump",false);
                 
             }
-            if(jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5) */){
+            if(jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/ ){
                     animator.SetBool("isJump",false);
             }
-            if((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)  )*/ && animator.GetBool("isJump") == false)){
+            if(((jumpPress /*|| (jumpOrSlide > -0.9 && jumpOrSlide < 0.5)*/)   && animator.GetBool("isJump") == false)){
                 animator.SetBool("isJump",true);
                 jumpPress =  false;
                 

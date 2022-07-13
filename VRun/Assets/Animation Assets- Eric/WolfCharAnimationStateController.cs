@@ -6,39 +6,16 @@ public class WolfCharAnimationStateController : MonoBehaviour
 {
     Animator animator;
     float blend = 0.0f;
-    //private float latestDirectionChangeTime;
-    //private readonly float directionChangeTime = 3f;
-    //private float characterVelocity = 0.5f;
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
     public AlienAnimationStateController animationStateController;
     //bool didAttack = false;
-
     public Transform charPosition;
-    public float distance = -5f;
-    //public float offset = 2.7f;
+    public float distance = 8f;
     public float delay = 0.03f;
-
     private CharacterController wolfController;
     public AudioSource source;
 
-
-
-
-
-    //public Transform charPosition;
-    /////////
-    /*
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
-    private float moveDistance = 1.5f;
-    private float gravityValue = -9.81f;
-    */
-    //public float speed = 0.4f;
-
-    // Start is called before the first frame update
     void Start()
     {
         wolfController = GetComponent<CharacterController>();
@@ -54,10 +31,9 @@ public class WolfCharAnimationStateController : MonoBehaviour
     {
         
         if(animationStateController.startGame == false){
-            distance = 4;
+            distance = 8;
             source.mute = true;
-        }else if(distance > -4 && animationStateController.startGame == true){
-            //source.unmute();
+        }else if(distance > -6 && animationStateController.startGame == true){
             source.mute = false;
             distance--;
         }

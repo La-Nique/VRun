@@ -8,12 +8,6 @@ public class CharacterTracking : MonoBehaviour
     public float distance = 1f;
     public float offset = 3f;
     public float delay = 0.02f;
-    /*
-    public float distance = 1;
-    public float offset = 2f;
-    public float delay = 0.04f;
-    */
-    // Start is called before the first frame update
     void Start()
     {
         

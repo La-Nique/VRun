@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.88393337, g: 0.69885814, b: 0.5278717, a: 1}
+  m_IndirectSpecularColor: {r: 0.6891199, g: 0.5659151, b: 0.45482826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationStateController: {fileID: 800226784}
   charPosition: {fileID: 1140431632}
-  distance: -5
+  distance: 8
   delay: 0.03
   source: {fileID: 0}
 --- !u!143 &302789788

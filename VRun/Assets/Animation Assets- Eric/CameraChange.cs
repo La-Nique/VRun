@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class CameraChange : MonoBehaviour
 {
-    //public Camera[] cameras = GetAllCameras();
-    //GetAllCameras(Camera[] cameras);
-    //Camera cam1 = GameObject.Find("MainCamera").GetComponent<Camera>();
-    //Camera cam2 = GameObject.Find("Camera2").GetComponent<Camera>();
-    // Start is called before the first frame update
     private AlienAnimationStateController alienChar;
     public GameObject start;
     public GameObject mountainCam;
@@ -20,8 +15,6 @@ public class CameraChange : MonoBehaviour
         mountainCam.SetActive(true);
         alienChar = start.GetComponent<AlienAnimationStateController>();
         StartCoroutine(waiter());
-       
-        //startCharMovement();
     }
 
     IEnumerator waiter()

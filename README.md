@@ -14,6 +14,4 @@ Playing Controls:
 When your iOS device is mounted in the googleVR or phone compatible equivalent VR system (with the home button on the right-hand size), tilt your head/phone left/right to move let/right, respectively. To jump, look up or down. To stop jumping or continue running straight, look straight ahead.
 
 
-
-[Directions and Installation.docx](https://github.com/La-Nique/VRun/files/9106641/Directions.and.Installation.docx)
-
+[Directions and Installation.docx](https://github.com/La-Nique/VRun/files/9106669/Directions.and.Installation.docx)

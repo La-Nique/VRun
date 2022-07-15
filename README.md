@@ -1,7 +1,13 @@
-# VRun
-Augmented Reality + Virtual Reality + Mixed Reality Project 
+# VRun: Augmented Reality + Virtual Reality + Mixed Reality Project 
 
-Authors: Lanique Peterson and Eric Dittus
+
+[<img width="641" alt="VRun" src="https://user-images.githubusercontent.com/54916166/179155042-87ce69a4-3de3-42fa-8dd2-ff8e8e563f45.png">](https://www.youtube.com/watch?v=rQ-VMlocOac)
+
+[VRun Gameplay Presentation](https://www.youtube.com/watch?v=rQ-VMlocOac)
+
+Developers: Lanique Peterson and Eric Dittus
+
+Research Paper & LaTex Files: [VRun: An Endless Runner Third-Person Virtual Reality Game](https://github.com/La-Nique/VRun/tree/main/research-paper)
 
 For Keyboard-accessible project without the need for googleVR: 
 https://github.com/EricDittus/VRun_KeyboardAccessible
@@ -15,3 +21,9 @@ When your iOS device is mounted in the googleVR or phone compatible equivalent V
 
 
 [Directions and Installation.docx](https://github.com/La-Nique/VRun/files/9106682/Directions.and.Installation.docx)
+
+
+
+
+
+

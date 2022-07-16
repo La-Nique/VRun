@@ -1,26 +1,25 @@
 # VRun: Augmented Reality + Virtual Reality + Mixed Reality Project 
 
-
 [<img width="641" alt="VRun" src="https://user-images.githubusercontent.com/54916166/179155042-87ce69a4-3de3-42fa-8dd2-ff8e8e563f45.png">](https://www.youtube.com/watch?v=rQ-VMlocOac)
 
-[VRun Gameplay Presentation](https://www.youtube.com/watch?v=rQ-VMlocOac)
+[Directions For Installation](https://github.com/La-Nique/VRun/files/9106682/Directions.and.Installation.docx)
 
-Developers: Lanique Peterson and Eric Dittus
+Developers: Lanique L. Peterson and Eric Dittus
+
+Description:
+A curious alien landed their ship on earth. While wandering through the forest, they encountered a hungry wolf. The hungry wolf starts chasing the alien, and the alien then flees back to their ship, dodging obstacles, to escape in one piece. Once the alien makes it back onto its ship, the alien takes off through space to land back on his home planet. Once they land on their home planet, they must run through dangerous terrain to make it back home. Our game is called VRun. VRun is a third-person endless runner game that uses natural head movement to direct and steer the alien to their destination. Natural head movement plays a significant role in the immersion levels of virtual reality systems. Virtual reality endless runner systems require a lot of head movement to enable users to feel immersed in the virtual environment. This research paper outlines the design and implementation of the system. An evaluation of the system demonstrates that this system works.
+
+System Requirements:
+iOS Phone and Google Cardboard VR (or phone compatible equivalent virtual reality system)
+
+Directions:
+Tilt your head/phone left/right to move left/right, respectively. 
+To jump, look up or down. 
+To stop jumping or continue running straight-- look straight ahead.
 
 Research Paper & LaTex Files: [VRun: An Endless Runner Third-Person Virtual Reality Game](https://github.com/La-Nique/VRun/tree/main/research-paper)
 
-For Keyboard-accessible project without the need for googleVR: 
-https://github.com/EricDittus/VRun_KeyboardAccessible
-
-Description:
-VRun is a VR integrated running game where the main character is an Alien visiting Earth for a bit of peace and tranquility (and perhaps an abductee or two), but quickly discovers the dangers of Planet Earth and must flee to return Home.
-
-  
-Playing Controls:
-When your iOS device is mounted in the googleVR or phone compatible equivalent VR system (with the home button on the right-hand size), tilt your head/phone left/right to move let/right, respectively. To jump, look up or down. To stop jumping or continue running straight, look straight ahead.
-
-
-[Directions and Installation.docx](https://github.com/La-Nique/VRun/files/9106682/Directions.and.Installation.docx)
+[vrun keyboard-accessible](https://github.com/EricDittus/VRun_KeyboardAccessible)
 
 
 

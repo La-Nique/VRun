@@ -7,7 +7,7 @@
 Developers: Lanique L. Peterson and Eric Dittus
 
 Description:
-A curious alien landed their ship on earth. While wandering through the forest, they encountered a hungry wolf. The hungry wolf starts chasing the alien, and the alien then flees back to their ship, dodging obstacles, to escape in one piece. Once the alien makes it back onto its ship, the alien takes off through space to land back on his home planet. Once they land on their home planet, they must run through dangerous terrain to make it back home. Our game is called VRun. VRun is a third-person endless runner game that uses natural head movement to direct and steer the alien to their destination. Natural head movement plays a significant role in the immersion levels of virtual reality systems. Virtual reality endless runner systems require a lot of head movement to enable users to feel immersed in the virtual environment. This research paper outlines the design and implementation of the system. An evaluation of the system demonstrates that this system works.
+A curious alien landed their ship on earth. While wandering through the forest, they encountered a hungry wolf. The hungry wolf starts chasing the alien, and the alien then flees back to their ship, dodging obstacles, to escape in one piece. Once the alien makes it back onto its ship, the alien takes off through space to land back on his home planet. Once they land on their home planet, they must run through dangerous terrain to make it back home.
 
 System Requirements:
 iOS Phone and Google Cardboard VR (or phone compatible equivalent virtual reality system)

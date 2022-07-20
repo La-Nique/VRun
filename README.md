@@ -6,20 +6,20 @@
 
 Developers: Lanique L. Peterson and Eric Dittus
 
-Description:
-A curious alien landed their ship on earth. While wandering through the forest, they encountered a hungry wolf. The hungry wolf starts chasing the alien, and the alien then flees back to their ship, dodging obstacles, to escape in one piece. Once the alien makes it back onto its ship, the alien takes off through space to land back on his home planet. Once they land on their home planet, they must run through dangerous terrain to make it back home.
+Game Blurb:
+A curious alien landed their ship on earth. While wandering through a forest, the alien encounters a hungry wolf. The hungry wolf starts chasing the alien, and the alien then flees back to their spaceship, dodging obstacles, to escape in one piece. Once the alien makes it back onto its ship, the alien takes off through space back to their home planet. Once landed, the alien must then run through dangerous terrain to make it back home.
 
 System Requirements:
 iOS Phone and Google Cardboard VR (or phone compatible equivalent virtual reality system)
 
-Directions:
+Instructions:
 Tilt your head/phone left/right to move left/right, respectively. 
 To jump, look up or down. 
 To stop jumping or continue running straight-- look straight ahead.
 
-Research Paper & LaTex Files: [VRun: An Endless Runner Third-Person Virtual Reality Game](https://github.com/La-Nique/VRun/tree/main/research-paper)
+Research Paper && LaTex Files: [VRun: An Endless Runner Third-Person Virtual Reality Game](https://github.com/La-Nique/VRun/tree/main/research-paper)
 
-[vrun keyboard-accessible](https://github.com/EricDittus/VRun_KeyboardAccessible)
+[vrun keyboard-accessible verison](https://github.com/EricDittus/VRun_KeyboardAccessible)
 
 
 
